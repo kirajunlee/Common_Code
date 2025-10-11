@@ -36,7 +36,7 @@ module simple_dpram_logic
 // ============================================================
     logic   [DATA_WIDTH-1: 0]                     ram_dout    ;
     logic   [DATA_WIDTH-1: 0]                     ram_reg     ;
-    logic   [2**WIDTH_ADDR-1: 0][DATA_WIDTH-1: 0] ram         ;
+    logic   [2**ADDR_WIDTH-1: 0][DATA_WIDTH-1: 0] ram         ;
 // ============================================================
 // 逻辑处理
 // ============================================================
@@ -45,7 +45,7 @@ module simple_dpram_logic
     initial begin
         ram_dout = {WIDTH_DATA{1'b0}};
         ram_reg  = {WIDTH_DATA{1'b0}};
-        for(int i = 0; i < (2**WIDTH_ADDR); i++) begin
+        for(int i = 0; i < (2**ADDR_WIDTH); i++) begin
             ram[i] = {WIDTH_DATA{1'b0}};
         end
     end
