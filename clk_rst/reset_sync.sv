@@ -7,7 +7,7 @@
 // 功能：本模块实现异步复位同步释放的功能;
 // ============================================================
 module reset_sync #(
-    parameter                 I_RESET_LEVEL = 1'b0             //输入复位电平;0,Low lever rst;1,High lever rst;
+    parameter                 I_RESET_LEVEL = 1'b0            ,//输入复位电平;0,Low lever rst;1,High lever rst;
     parameter                 O_RESET_LEVEL = 1'b0             //复位同步化后需要的复位电平;0,Low lever rst;1,High lever rst;
 )(
     input                     clk                             ,
