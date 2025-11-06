@@ -36,7 +36,7 @@ generate
     if (I_RESET_LEVEL == 1'b0) begin : I_LOW_LEVER_RST
         //两级同步器降低异步的亚稳态概率；
         always @(posedge clk, negedge rst_i) begin
-            if (~rst_n) begin
+            if (~rst_i) begin
                 rst_s1 <= O_RESET_LEVEL ;  //复位时2级触发器复位值等于复位电平;
                 rst_s2 <= O_RESET_LEVEL ;
             end
@@ -48,7 +48,7 @@ generate
     end
     else begin : I_HIGH_LEVER_RST
         always @(posedge clk, posedge rst_i) begin
-            if (~rst_n) begin
+            if (rst_i) begin
                 rst_s1 <= O_RESET_LEVEL ;  //复位时2级触发器复位值等于复位电平;
                 rst_s2 <= O_RESET_LEVEL ;
             end
